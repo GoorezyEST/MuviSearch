@@ -25,9 +25,13 @@ const App = () => {
       <h1>MuviSerch</h1>
       <div className="search">
         <input
+          id="inputField"
           placeholder="Search for movies ..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
+          onKeyUp={(event) => {
+            if (event.key === "Enter") searchMovies(searchTerm);
+          }}
         />
         <img
           src={searchIcon}
